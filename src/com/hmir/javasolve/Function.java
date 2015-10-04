@@ -16,9 +16,10 @@ public class Function extends Operation{
 	private static final String COT = "cot";
 	
 	private static final String SQRT = "sqrt";
-	private static final String LN = "ln";
+	private static final String LN = "ln"; 
+	private static final String LOG10 = "log10";
 	
-	private static final String[] FUNCTIONS = {SIN, COS, TAN, ASIN, ACOS, ATAN, CSC, SEC, COT, SQRT, LN};
+	private static final String[] FUNCTIONS = {SIN, COS, TAN, ASIN, ACOS, ATAN, CSC, SEC, COT, SQRT, LN, LOG10};
 	
 	private String type;
 	private Expression expr;
@@ -51,7 +52,8 @@ public class Function extends Operation{
 		else if (type.equals(COT)) expr.replaceObjects(thisIndex, indexAfter, new BigDecimal(1/(Math.tan(x.doubleValue()) * angleOperator)));
 		
 		else if(type.equals(SQRT)) expr.replaceObjects(thisIndex, indexAfter, new BigDecimal(Math.sqrt(x.doubleValue())));
-		else if(type.equals(LN)) expr.replaceObjects(thisIndex, indexAfter, new BigDecimal(Math.log(x.doubleValue())));		
+		else if(type.equals(LN)) expr.replaceObjects(thisIndex, indexAfter, new BigDecimal(Math.log(x.doubleValue())));
+		else if(type.equals(LOG10)) expr.replaceObjects(thisIndex, indexAfter, new BigDecimal(Math.log10(x.doubleValue())));
 
 	}
 	
