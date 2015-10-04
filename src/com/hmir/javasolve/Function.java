@@ -4,14 +4,21 @@ import java.math.BigDecimal;
 
 public class Function extends Operation{
 
+	//trig functions
 	private static final String SIN = "sin";
 	private static final String COS = "cos";
 	private static final String TAN = "tan";
 	private static final String ASIN = "asin";
 	private static final String ACOS = "acos";
 	private static final String ATAN = "atan";
+	private static final String CSC = "csc";
+	private static final String SEC = "sec";
+	private static final String COT = "cot";
 	
-	private static final String[] FUNCTIONS = {SIN, COS, TAN, ASIN, ACOS, ATAN};
+	private static final String SQRT = "sqrt";
+	private static final String LN = "ln";
+	
+	private static final String[] FUNCTIONS = {SIN, COS, TAN, ASIN, ACOS, ATAN, CSC, SEC, COT, SQRT, LN};
 	
 	private String type;
 	private Expression expr;
@@ -39,6 +46,12 @@ public class Function extends Operation{
 		else if (type.equals(ASIN)) expr.replaceObjects(thisIndex, indexAfter, new BigDecimal(Math.asin(x.doubleValue()) * angleOperator));
 		else if (type.equals(ACOS)) expr.replaceObjects(thisIndex, indexAfter, new BigDecimal(Math.acos(x.doubleValue()) * angleOperator));
 		else if (type.equals(ATAN)) expr.replaceObjects(thisIndex, indexAfter, new BigDecimal(Math.atan(x.doubleValue()) * angleOperator));
+		else if (type.equals(CSC)) expr.replaceObjects(thisIndex, indexAfter, new BigDecimal(1/(Math.sin(x.doubleValue()) * angleOperator)));
+		else if (type.equals(SEC)) expr.replaceObjects(thisIndex, indexAfter, new BigDecimal(1/(Math.cos(x.doubleValue()) * angleOperator)));
+		else if (type.equals(COT)) expr.replaceObjects(thisIndex, indexAfter, new BigDecimal(1/(Math.tan(x.doubleValue()) * angleOperator)));
+		
+		else if(type.equals(SQRT)) expr.replaceObjects(thisIndex, indexAfter, new BigDecimal(Math.sqrt(x.doubleValue())));
+		else if(type.equals(LN)) expr.replaceObjects(thisIndex, indexAfter, new BigDecimal(Math.log(x.doubleValue())));		
 
 	}
 	

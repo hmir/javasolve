@@ -5,12 +5,14 @@ import java.math.MathContext;
 
 public class Operation {
 
+	//operators
 	private static final String PLUS = "+";
 	private static final String MINUS = "-";
 	private static final String TIMES = "*";
 	private static final String DIVIDE = "/";
 	private static final String POWER = "^";
 	
+	//array of above operators
 	private static final String[] OPERATIONS = {PLUS, MINUS, TIMES, DIVIDE, POWER};
 	
 	private String type;
@@ -31,6 +33,8 @@ public class Operation {
 		
 		BigDecimal x = new BigDecimal(expr.getArrayList().get(indexBefore).toString());
 		BigDecimal y = new BigDecimal(expr.getArrayList().get(indexAfter).toString());
+		
+		//implementations of operations 
 		
 		if (type.equals(PLUS)) expr.replaceObjects(indexBefore, indexAfter, x.add(y));
 		
