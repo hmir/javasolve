@@ -1,7 +1,6 @@
 package com.hmir.javasolve;
 
 import java.math.BigDecimal;
-import java.math.MathContext;
 
 public class Operation {
 
@@ -37,14 +36,10 @@ public class Operation {
 		//implementations of operations 
 		
 		if (type.equals(PLUS)) expr.replaceObjects(indexBefore, indexAfter, x.add(y));
-		
 		else if (type.equals(MINUS)) expr.replaceObjects(indexBefore, indexAfter, x.subtract(y));
-		
-		else if (type.equals(TIMES)) expr.replaceObjects(indexBefore, indexAfter, x.multiply(y, MathContext.DECIMAL64));
-		
-		else if (type.equals(DIVIDE)) expr.replaceObjects(indexBefore, indexAfter, x.divide(y, MathContext.DECIMAL64));
-		
-		else if (type.equals(POWER)) expr.replaceObjects(indexBefore, indexAfter, new BigDecimal(Math.pow(x.doubleValue(), y.doubleValue()), MathContext.DECIMAL64));
+		else if (type.equals(TIMES)) expr.replaceObjects(indexBefore, indexAfter, x.multiply(y));
+		else if (type.equals(DIVIDE)) expr.replaceObjects(indexBefore, indexAfter, x.divide(y));
+		else if (type.equals(POWER)) expr.replaceObjects(indexBefore, indexAfter, new BigDecimal(Math.pow(x.doubleValue(), y.doubleValue())));
 		
 	}
 

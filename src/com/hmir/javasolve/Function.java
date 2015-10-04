@@ -15,10 +15,12 @@ public class Function extends Operation{
 	private static final String SEC = "sec";
 	private static final String COT = "cot";
 	
+	//other functions
 	private static final String SQRT = "sqrt";
 	private static final String LN = "ln"; 
 	private static final String LOG10 = "log10";
 	
+	//array of functions
 	private static final String[] FUNCTIONS = {SIN, COS, TAN, ASIN, ACOS, ATAN, CSC, SEC, COT, SQRT, LN, LOG10};
 	
 	private String type;
@@ -40,6 +42,8 @@ public class Function extends Operation{
 		if(expr.getAngleMode() == Expression.DEGREE){
 			angleOperator = Math.PI/180;
 		}
+		
+		//implementations of functions
 		
 		if (type.equals(SIN)) expr.replaceObjects(thisIndex, indexAfter, new BigDecimal(Math.sin(x.doubleValue()) * angleOperator));
 		else if (type.equals(COS)) expr.replaceObjects(thisIndex, indexAfter, new BigDecimal(Math.cos(x.doubleValue()) * angleOperator));
@@ -66,7 +70,7 @@ public class Function extends Operation{
 
 	@Override
 	public String toString() {
-		return super.toString();
+		return type;
 	}
 
 	@Override
